@@ -1,6 +1,6 @@
 
 import { FlatList, View} from "react-native";
-import { Appbar, Text, Card, ActivityIndicator } from "react-native-paper";
+import { Text, Card, ActivityIndicator } from "react-native-paper";
 import { queryCountries } from "./hooks/queryCountry";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Button } from 'react-native';
