@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
+import { NavigationContainer, TabRouter } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { ApolloProvider } from '@apollo/client';
+import client from './src/gql/client';
+
+import HomeScreen from './src/HomeScreen';
+import CountriesScreen from './src/CountriesScreen';
+import CountriesScreen2 from './src/CountriesScreen';
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
+
+  const _goBack = () => console.log('Went back');
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen 
+            name="Home"
+            component={HomeScreen}
+            options={{title: "Practical Task"}}
+          />
+          <Stack.Screen 
+            name="Countries"
+            component={CountriesScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ApolloProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

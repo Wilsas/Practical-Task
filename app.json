@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myApp",
-    "slug": "myApp",
+    "name": "practical-task",
+    "slug": "practical-task",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
