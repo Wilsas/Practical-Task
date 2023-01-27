@@ -1,6 +1,6 @@
 
 import { FlatList, View} from "react-native";
-import { Text, Card, ActivityIndicator } from "react-native-paper";
+import { Text, Card, ActivityIndicator, Avatar } from "react-native-paper";
 import { queryCountries } from "./hooks/queryCountry";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Button } from 'react-native';
@@ -12,14 +12,14 @@ const CountryItem = ({ country }) => {
 
   return (
     <Card style={styles.card}>
-    <Card.Cover source={{ uri: country.flag }} />
-    <Card.Title title={country.name} subtitle={country.nativeName}/>
+
+    <Card.Title title={country.name} subtitle={country.nativeName} left={()=> <Avatar.Image size={48} source = {({uri: country.flag})}/>}/>
     <Card.Content>
     <Text variant="bodyMedium">Population: {country.population}</Text>
       <Text variant="bodyMedium">Languages: </Text>
       <FlatList 
         data = {country.languages.edges}
-        renderItem={({ item }) => <Text variant="bodyMedium">{item.node.name}</Text>}
+        renderItem={({ item }) => <Text style={padding=4 } variant="bodyMedium">{item.node.name}</Text>}
         keyExtractor={(item) => item.node.id}
         />
     </Card.Content>
