@@ -19,7 +19,7 @@ const CountryItem = ({ country }) => {
       <Text variant="bodyMedium">Languages: </Text>
       <FlatList 
         data = {country.languages.edges}
-        renderItem={({ item }) => <Text style={padding=4 } variant="bodyMedium">{item.node.name}</Text>}
+        renderItem={({ item }) => <Text variant="bodyMedium">{item.node.name}</Text>}
         keyExtractor={(item) => item.node.id}
         />
     </Card.Content>
